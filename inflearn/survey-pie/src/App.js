@@ -1,48 +1,42 @@
-import { useState } from 'react';
-
-import ProgressIndicator from './components/ProgressIndicator';
-import QuestionBox from './components/QuestionBox';
+import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import SurveyPage from './pages/SurveyPage';
+import CompletionPage from './pages/CompletionPage';
 
 function App() {
-  const questions = [
-    {
-      title: '질문1 입니다.',
-      desc: '질문1 설명 입니다.',
-      type: 'text',
-      required: false,
-      options: {},
-    },
-    {
-      title: '질문 2 입니다.',
-      desc: '질문 2 설명 입니다.',
-      type: 'text',
-      required: true,
-      options: {},
-    },
-  ];
-
-  const step = 0;
-
-  const [answers, setAnswers] = useState([]);
-
   return (
     <div className="App">
-      <ProgressIndicator />
-      <QuestionBox
-        question={questions[step]}
-        questionLength={questions.length}
-        step={step}
-        answer={answers[step]}
-        setAnswer={(newAnswer) => {
-          setAnswers((answers) => {
-            const newAnswers = [...answers];
-            newAnswers[step] = newAnswer;
-            return newAnswers;
-          });
-        }}
-      />
+      <AppWrapper>
+        <Box>
+          <Routes>
+            <Route path="/done" element={<CompletionPage />} />
+            <Route path="/survey/:surveyId" element={<SurveyPage />}>
+              <Route path=":step" element={<SurveyPage />} />
+            </Route>
+          </Routes>
+        </Box>
+      </AppWrapper>
     </div>
   );
 }
+
+const AppWrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5e5;
+`;
+
+const Box = styled.div`
+  width: 700px;
+  min-height: 500px;
+  background: #ffffff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  padding: 60px;
+  display: flex;
+  box-sizing: border-box;
+`;
 
 export default App;
