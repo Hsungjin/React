@@ -22,7 +22,7 @@ function App() {
         newMemos[selectedMemoIndex] = newMemo;
         debounceSetItem("memo", [...newMemos]);
         return newMemos;
-      })
+      });
     },
     [selectedMemoIndex]
   );
@@ -50,7 +50,7 @@ function App() {
     (index) => {
       setMemos((memos) => {
         const newMemos = [...memos];
-        
+
         newMemos.splice(index, 1);
         debounceSetItem("memo", [...newMemos]);
         return newMemos;
