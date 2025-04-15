@@ -13,10 +13,10 @@ const TextArea = styled.textarea`
   resize: none;
 `;
 
-function TextAreaInput({ answer, setAnswer, options }) {
+function TextAreaInput({ answer = '', setAnswer, options }) {
   return (
     <TextArea
-      value={answer || ''}
+      value={answer}
       onChange={(e) => setAnswer(e.target.value)}
       placeholder={options?.placeholder}
     />

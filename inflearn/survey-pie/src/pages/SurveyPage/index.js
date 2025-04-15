@@ -1,18 +1,17 @@
-import { useParams } from 'react-router-dom';
+import { Suspense } from 'react';
 import styled from 'styled-components';
 
 import ProgressIndicator from '../../components/ProgressIndicator';
 import QuestionBox from '../../components/QuestionBox';
 
 function SurveyPage() {
-  const params = useParams();
-  const surveyId = params.surveyId;
-
   return (
-    <SurveyPageWrapper>
-      <ProgressIndicator />
-      <QuestionBox />
-    </SurveyPageWrapper>
+    <Suspense fallback={<div>Loading...</div>}>
+      <SurveyPageWrapper>
+        <ProgressIndicator />
+        <QuestionBox />
+      </SurveyPageWrapper>
+    </Suspense>
   );
 }
 

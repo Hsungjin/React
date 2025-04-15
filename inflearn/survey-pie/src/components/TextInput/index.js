@@ -10,11 +10,11 @@ const Input = styled.input`
   padding: 12px 18px;
 `;
 
-function TextInput({ answer, setAnswer, options }) {
+function TextInput({ answer = '', setAnswer, options }) {
   return (
     <Input
       type="text"
-      value={answer || ''}
+      value={answer}
       onChange={(e) => setAnswer(e.target.value)}
       placeholder={options?.placeholder}
     />
