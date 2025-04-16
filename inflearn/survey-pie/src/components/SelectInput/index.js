@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-function Item({ children, onChange }) {
+function Item({ children, onChange, checked }) {
   return (
     <ItemWrapper>
       <label>
-        <input type="checkbox" onChange={onChange} />
+        <input type="checkbox" checked={checked} onChange={onChange} />
         <span />
         <div>{children}</div>
       </label>
@@ -15,6 +15,12 @@ function Item({ children, onChange }) {
 function SelectInput({ answer = [], setAnswer, options }) {
   const handleChange = (index, isChecked) => {
     if (isChecked) {
+      const max = options?.max ?? 1;
+
+      if (answer.length >= max) {
+        return;
+      }
+      
       setAnswer([...answer, index]);
     } else {
       setAnswer(answer.filter((item) => item !== index));
@@ -28,6 +34,7 @@ function SelectInput({ answer = [], setAnswer, options }) {
           <Item
             key={index}
             onChange={(e) => handleChange(index, e.target.checked)}
+            checked={answer.includes(index)}
           >
             {item}
           </Item>

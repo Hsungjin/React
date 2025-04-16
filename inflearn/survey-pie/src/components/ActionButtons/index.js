@@ -8,16 +8,19 @@ import useSurveyId from '../../hooks/useSurveyId';
 import useAnswers from '../../hooks/useAnswers';
 import questionsLengthState from '../../stores/survey/questionsLengthState';
 import postAnswers from '../../services/postAnswers';
+import useRequiredOption from '../../hooks/useRequiredOption';
 
 function ActionButtons() {
   const step = useStep();
   const surveyId = useSurveyId();
   const questionLength = useRecoilValue(questionsLengthState);
-  const answers = useAnswers();
+  const [answers, setAnswers] = useAnswers();
   const [isPosting, setIsPosting] = useState(false);
+  const requiredOption = useRequiredOption();
 
   const isLast = step === questionLength - 1;
   const navigate = useNavigate();
+  const canBlockToNext = requiredOption ? !answers[step]?.length : false;
 
   return (
     <ActionButtonsWrapper>
@@ -33,6 +36,7 @@ function ActionButtons() {
             setIsPosting(true);
             postAnswers(surveyId, answers)
               .then(() => {
+                setAnswers([]);
                 navigate(`/done/${surveyId}`);
               })
               .catch((err) => {
@@ -43,11 +47,16 @@ function ActionButtons() {
                 setIsPosting(false);
               });
           }}
-          disabled={isPosting}>
+          disabled={isPosting || canBlockToNext}
+        >
           {isPosting ? '제출중...' : '제출'}
         </Button>
       ) : (
-        <Button type="PRIMARY" onClick={() => navigate(`${step + 1}`)}>
+        <Button
+          type="PRIMARY"
+          onClick={() => navigate(`${step + 1}`)}
+          disabled={canBlockToNext}
+        >
           다음
         </Button>
       )}

@@ -19,6 +19,7 @@ function TextAreaInput({ answer = '', setAnswer, options }) {
       value={answer}
       onChange={(e) => setAnswer(e.target.value)}
       placeholder={options?.placeholder}
+      { ...(options?.max ? {maxLength: options.max} : null) }
     />
   );
 }
