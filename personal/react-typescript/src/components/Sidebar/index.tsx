@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 const Container = styled.aside`
   background-color: #f2f2f2;
@@ -14,12 +15,17 @@ const MenuItem = styled.li`
   margin-bottom: 10px;
 `;
 
-const MenuLink = styled.a`
+const MenuLink = styled(NavLink)`
   color: #333;
   text-decoration: none;
   font-size: 18px;
 
   &:hover {
+    color: #4285f4;
+  }
+
+  &.active {
+    font-weight: bold;
     color: #4285f4;
   }
 `;
@@ -42,16 +48,16 @@ export const Sidebar = () => {
     <Container>
       <Menu>
         <MenuItem>
-          <MenuLink href='#'>Home</MenuLink>
+          <MenuLink to='/'>Home</MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink href='#'>About</MenuLink>
+          <MenuLink to='/about'>About</MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink href='#'>Services</MenuLink>
+          <MenuLink to='/example1'>Services</MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink href='#'>Contact</MenuLink>
+          <MenuLink to='/example2'>Contact</MenuLink>
         </MenuItem>
       </Menu>
       <Info>

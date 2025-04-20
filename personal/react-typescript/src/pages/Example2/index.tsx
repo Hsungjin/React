@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.section`
   padding: 20px;
@@ -32,7 +33,21 @@ const Text = styled.p`
   font-size: 16px;
 `;
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 export const Example2 = () => {
+  const nevigate = useNavigate();
+
+  const handleClick = () => {
+    nevigate('/');
+    scrollToTop();
+  };
+
   return (
     <Container>
       <Title>Example 2</Title>
@@ -43,6 +58,7 @@ export const Example2 = () => {
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
           </Text>
+          <button onClick={handleClick}>go home</button>
         </Card>
         <Card>
           <Image src='https://placehold.co/250' alt='Placeholder Image' />
