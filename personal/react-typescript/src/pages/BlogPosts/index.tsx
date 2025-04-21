@@ -12,6 +12,7 @@ interface Post {
 
 export const BlogPosts = () => {
   const [posts, setPosts] = useState<ReadonlyArray<Post>>([]);
+
   useEffect(() => {
     setTimeout(() => {
       setPosts(mockPosts);
