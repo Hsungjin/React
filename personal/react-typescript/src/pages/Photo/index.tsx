@@ -43,7 +43,7 @@ async function fetchPhotos() {
     throw new Error('Error occurs');
   }
   const parsedData = await response.json();
-  const transformedPhotos = parsedData.slice(0, 4);
+  const transformedPhotos = parsedData.slice(0, 20);
 
   return transformedPhotos;
 }
@@ -52,12 +52,12 @@ const App = () => {
   const [photos, setPhotos] = useState<ReadonlyArray<Photo>>([]);
 
   // useEffect를 사용한 기본적인 Fetch API
-  /*  useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/photos')
-          .then((response) => response.json())
-          .then((data) => setPhotos(data.slice(0, 10))) // 원하는 개수만큼 자르기
-          .catch((error) => console.error(error));
-      }, []);*/
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/photos')
+  //     .then((response) => response.json())
+  //     .then((data) => setPhotos(data.slice(0, 10))) // 원하는 개수만큼 자르기
+  //     .catch((error) => console.error(error));
+  // }, []);
 
   useEffect(() => {
     fetchPhotos().then((response) => setPhotos(response));

@@ -65,6 +65,9 @@ export const Sidebar = () => {
         <MenuItem>
           <MenuLink to='/photo'>Photo</MenuLink>
         </MenuItem>
+        <MenuItem>
+          <MenuLink to='/todo-list'>Todo</MenuLink>
+        </MenuItem>
       </Menu>
       <Info>
         <InfoTitle>Follow Us</InfoTitle>
