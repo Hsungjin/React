@@ -1435,6 +1435,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@date-fns/tz@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@date-fns/tz@npm:1.2.0"
+  checksum: 10c0/411e9d4303b10951f6fd0189d18fb845f0d934a575df2176bc10daf664282c765fb6b057a977e446bbb1229151d89e7788978600a019f1fc24b5c75276d496bd
+  languageName: node
+  linkType: hard
+
 "@esbuild/aix-ppc64@npm:0.25.3":
   version: 0.25.3
   resolution: "@esbuild/aix-ppc64@npm:0.25.3"
@@ -3299,6 +3306,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns-jalali@npm:4.1.0-0":
+  version: 4.1.0-0
+  resolution: "date-fns-jalali@npm:4.1.0-0"
+  checksum: 10c0/f9ad98d9f7e8e5abe0d070dc806b0c8baded2b1208626c42e92cbd2605b5171f5714d6b79b20cc2666267d821699244c9d0b5e93274106cf57d6232da77596ed
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:4.1.0, date-fns@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "date-fns@npm:4.1.0"
+  checksum: 10c0/b79ff32830e6b7faa009590af6ae0fb8c3fd9ffad46d930548fbb5acf473773b4712ae887e156ba91a7b3dc30591ce0f517d69fd83bd9c38650fdc03b4e0bac8
+  languageName: node
+  linkType: hard
+
 "dayjs@npm:^1.11.13":
   version: 1.11.13
   resolution: "dayjs@npm:1.11.13"
@@ -5006,6 +5027,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kakao.maps.d.ts@npm:^0.1.40":
+  version: 0.1.40
+  resolution: "kakao.maps.d.ts@npm:0.1.40"
+  checksum: 10c0/16eef0d9846311921ae3c5c020a8769ab8d1f894b2a6f1aef869a83648462982c2891bc8ea174665345290483bf73feb6ae264273cee38a40a1adbb17aa6862f
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.5.4":
   version: 4.5.4
   resolution: "keyv@npm:4.5.4"
@@ -5550,6 +5578,7 @@ __metadata:
     "@types/react-dom": "npm:^19.0.4"
     "@vitejs/plugin-react": "npm:^4.3.4"
     classnames: "npm:^2.5.1"
+    date-fns: "npm:^4.1.0"
     eslint: "npm:^9.25.1"
     eslint-config-prettier: "npm:^10.1.2"
     eslint-config-react-app: "npm:^7.0.1"
@@ -5559,10 +5588,13 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.4.19"
     globals: "npm:^16.0.0"
     json-server: "npm:^1.0.0-beta.3"
+    kakao.maps.d.ts: "npm:^0.1.40"
     prettier: "npm:^3.5.3"
     react: "npm:^19.0.0"
+    react-day-picker: "npm:^9.6.7"
     react-dom: "npm:^19.0.0"
     sass: "npm:^1.87.0"
+    swiper: "npm:^11.2.6"
     typescript: "npm:~5.7.2"
     typescript-eslint: "npm:^8.26.1"
     vite: "npm:^6.3.1"
@@ -5710,6 +5742,19 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: 10c0/900a93d3cdae3acd7d16f642c29a642aea32c2026446151f0778c62ac089d4b8e6c986811076e1ae180a694cedf077d453a11b58ff0a865629a4f82ab558e102
+  languageName: node
+  linkType: hard
+
+"react-day-picker@npm:^9.6.7":
+  version: 9.6.7
+  resolution: "react-day-picker@npm:9.6.7"
+  dependencies:
+    "@date-fns/tz": "npm:1.2.0"
+    date-fns: "npm:4.1.0"
+    date-fns-jalali: "npm:4.1.0-0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/c56b50766224dc7c6ebfe9db43adc0f4fa028bb40f3691d16582adcd3efddfdbe141be31b18b6641ebe6f7f23638e6926a14aa470b5cecc3a12f226556bcd407
   languageName: node
   linkType: hard
 
@@ -6440,6 +6485,13 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 10c0/6c4032340701a9950865f7ae8ef38578d8d7053f5e10518076e6554a9381fa91bd9c6850193695c141f32b21f979c985db07265a758867bac95de05f7d8aeb39
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^11.2.6":
+  version: 11.2.6
+  resolution: "swiper@npm:11.2.6"
+  checksum: 10c0/36ba63e2d1c5045f647f0f07b3a25c164393fb89b17db63f57fa9f776eb61bc5cb2c34634f80cf69caaddc209a174d0cd7be23c580785534569ea4a098b3a42c
   languageName: node
   linkType: hard
 

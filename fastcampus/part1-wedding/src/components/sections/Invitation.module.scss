@@ -1,0 +1,12 @@
+@use "../../scss/utils.scss" as *;
+
+.container {
+  @include text-content;
+
+  .icon-post {
+    width: 30px;
+    height: 30px;
+    fill: pink;
+    margin: 72px 0 8px;
+  }
+}
