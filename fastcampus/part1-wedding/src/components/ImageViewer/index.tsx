@@ -4,8 +4,10 @@ import styles from "./ImageViewer.module.scss";
 // @ts-ignore
 import "swiper/css";
 // @ts-ignore
+
 import "./swiper.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Dimmend from "../shared/Dimmend";
 
 const cx = classNames.bind(styles);
 
@@ -22,7 +24,7 @@ function ImageViewer({
 }) {
   if (!open) return null;
   return (
-    <div className={cx("dimmed")}>
+    <Dimmend>
       <CloseButton className={cx("icon-close")} onClose={onClose} />
       <Swiper
         spaceBetween={20}
@@ -32,11 +34,14 @@ function ImageViewer({
       >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <img src={src} alt="이미지 뷰어" />
+            <picture>
+              <source srcSet={`${src}.webp`} type="image/webp" />
+              <img src={`${src}.jpg`} alt="이미지 뷰어" />
+            </picture>
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </Dimmend>
   );
 }
 

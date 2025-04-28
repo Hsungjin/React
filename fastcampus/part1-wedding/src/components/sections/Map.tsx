@@ -5,9 +5,8 @@ import Section from "../shared/Section";
 import { useEffect, useRef } from "react";
 import { Location } from "../../models/wedding";
 
-const { kakao } = window;
-
 const cx = classNames.bind(styles);
+
 
 declare global {
   interface Window {
@@ -15,36 +14,38 @@ declare global {
   }
 }
 
+
 function Map({ location }: { location: Location }) {
   const mapContainer = useRef(null);
 
   useEffect(() => {
     const script = document.createElement("script");
+    script.id = "kakao-map-script";
     script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAO_APP_KEY}&autoload=false`;
     script.async = true;
 
-    document.head.appendChild(script);
+    document.head.appendChild(script)
+
     script.onload = () => {
-      new window.kakao.maps.load(() => {
+      window.kakao.maps.load(() => {
         const position = new window.kakao.maps.LatLng(
           location.lat,
-          location.lng
-        );
+          location.lng,
+        )
 
         const options = {
           center: position,
           level: 3,
-        };
+        }
 
-        const map = new window.kakao.maps.Map(mapContainer.current, options);
-
-        const marker = new window.kakao.maps.Marker({
+        const market = new window.kakao.maps.Marker({
           position,
-        });
-        marker.setMap(map);
-      });
-    };
-  }, [location]);
+        })
+        const map = new window.kakao.maps.Map(mapContainer.current, options)
+        market.setMap(map)
+      })
+    }
+  }, [location])
 
   return (
     <Section
@@ -78,9 +79,9 @@ function WayToCome({
   return (
     <div className={cx("wrap-waytocome")}>
       <div className={cx("text-label")}>{label}</div>
-      <ul className={cx("list-waytocome")}>
+      <ul>
         {list.map((waytocome) => (
-          <li>{waytocome}</li>
+          <li key={waytocome}>{waytocome}</li>
         ))}
       </ul>
     </div>
