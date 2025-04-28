@@ -1,7 +1,9 @@
 @font-face {
   font-family: "NanumGarMaesGeur";
   src:
-    url("../assets/fonts/NanumGarMaesGeur.woff2") format("woff2"),
-    url("../assets/fonts/NanumGarMaesGeur.woff") format("woff"),
-    url("../assets/fonts/NanumGarMaesGeur.ttf") format("truetype");
+    url("../assets/fonts/subset-NanumGeumEunBoHwa.woff2") format("woff2"),
+    url("../assets/fonts/subset-NanumGeumEunBoHwa.woff") format("woff"),
+    url("../assets/fonts/subset-NanumGeumEunBoHwa.ttf") format("truetype");
+  font-display: fallback;
+  // swap, block, fallback, optional
 }
