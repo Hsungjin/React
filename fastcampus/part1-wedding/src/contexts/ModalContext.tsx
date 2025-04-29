@@ -1,4 +1,11 @@
-import { ComponentProps, createContext, useContext, useState } from "react";
+import {
+  ComponentProps,
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 
 import Modal from "../components/shared/Modal";
 import { createPortal } from "react-dom";
@@ -25,21 +32,24 @@ export function ModalContext({ children }: { children: React.ReactNode }) {
 
   const $portal_root = document.getElementById("root-portal");
 
-  const open = (options: ModalOptions) => {
+  const open = useCallback((options: ModalOptions) => {
     setModalState({
       ...options,
       open: true,
     });
-  };
+  }, []);
 
-  const close = () => {
+  const close = useCallback(() => {
     setModalState(defaultValues);
-  };
+  }, []);
 
-  const values = {
-    open,
-    close,
-  };
+  const values = useMemo(
+    () => ({
+      open,
+      close,
+    }),
+    [open, close]
+  );
 
   return (
     <Context.Provider value={values}>
@@ -52,11 +62,11 @@ export function ModalContext({ children }: { children: React.ReactNode }) {
 }
 
 export function useModalContext() {
-    const values = useContext(Context);
-    
-    if (values == null) {
-        throw new Error("ModalContext 내부에서 사용해야 합니다.");
-    }
+  const values = useContext(Context);
 
-    return values;
+  if (values == null) {
+    throw new Error("ModalContext 내부에서 사용해야 합니다.");
+  }
+
+  return values;
 }
