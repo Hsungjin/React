@@ -1,12 +1,10 @@
 import classNames from "classnames/bind";
 import styles from "./App.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import FullScreenMessage from "./components/shared/FullScreenMessage";
 import Heading from "./components/sections/Heading";
 import Video from "./components/sections/Video";
 
-import { Wedding } from "./models/wedding";
 import ImageGallery from "./components/sections/ImageGallery";
 import Intro from "./components/sections/Intro";
 import Invitation from "./components/sections/Invitation";
@@ -16,26 +14,19 @@ import Contact from "./components/sections/Contact";
 import Share from "./components/sections/Share";
 import AttendCountModal from "./components/AttendCountModal";
 
-import { useWedding } from "./hooks/useWedding";
+import useWedding from "./hooks/useWedding";
 const cx = classNames.bind(styles);
 
 function App() {
   const [count, setCount] = useState(0);
 
   // 1. wedding 데이터 호출
-  const { wedding, isLoading, error } = useWedding();
+  const { wedding } = useWedding();
 
   if (wedding == null) {
     return null;
   }
-  
-  if (isLoading) {
-    return <FullScreenMessage type="loading" />;
-  }
-  
-  if (error) {
-    return <FullScreenMessage type="error" />;
-  }
+
   
   const {
     date,
