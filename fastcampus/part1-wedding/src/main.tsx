@@ -14,6 +14,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <ModalContext>
+        
         <ErrorBoundary fallbackUI={<FullScreenMessage type="error" />}>
           <Suspense fallback={<FullScreenMessage type="loading" />}>
             <App />
