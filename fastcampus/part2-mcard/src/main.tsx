@@ -4,12 +4,19 @@ import App from './App.tsx';
 import { Global } from '@emotion/react';
 import globalStyled from './styles/globalStyled.ts';
 import { AlertContextProvider } from '@contexts/AlertContext.tsx';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const client = new QueryClient({
+  defaultOptions: {},
+});
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Global styles={globalStyled} />
-    <AlertContextProvider>
-      <App />
-    </AlertContextProvider>
+    <QueryClientProvider client={client}>
+      <AlertContextProvider>
+        <App />
+      </AlertContextProvider>
+    </QueryClientProvider>
   </StrictMode>
 );

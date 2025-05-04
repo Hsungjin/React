@@ -5,7 +5,7 @@ import { CSSProperties } from 'react';
 import styled from '@emotion/styled';
 
 interface TextProps {
-  typography: Typography;
+  typography?: Typography;
   color?: Colors;
   display?: CSSProperties['display'];
   textAlign?: CSSProperties['textAlign'];
@@ -20,7 +20,7 @@ const Text = styled.span<TextProps>`
     textAlign,
     fontWeight: bold ? 'bold' : fontWeight,
   })}
-  ${({ typography }) => typographyMap[typography]}
+  ${({ typography = 't7' }) => typographyMap[typography]}
 `;
 
 export default Text;

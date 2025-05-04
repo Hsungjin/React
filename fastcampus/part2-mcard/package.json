@@ -14,9 +14,13 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "firebase": "^11.6.1",
+    "lodash": "^4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.5.3"
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^7.5.3",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.27.1",
@@ -28,6 +32,7 @@
     "@types/babel__traverse": "^7.20.7",
     "@types/estree": "^1.0.7",
     "@types/json-schema": "^7.0.15",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^22.15.3",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

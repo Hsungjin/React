@@ -148,4 +148,16 @@ export default css`
 
     line-height: normal;
   }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+  }
+  a:hover,
+  a:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #f59000;
+  }
 `;

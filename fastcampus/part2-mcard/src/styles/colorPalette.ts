@@ -7,7 +7,7 @@ export const colorPalette = css`
     --green: #4caf50;
     --white: #ffffff;
     --black: #000000;
-    --gray: #9e9e9e;
+    --gray:rgb(210, 209, 209);
     --orange: #ff9800;
     --purple: #9c27b0;
     --pink: #e91e63;
