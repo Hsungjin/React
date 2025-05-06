@@ -3,9 +3,12 @@ import { useInfiniteQuery } from 'react-query';
 import { getCards } from '@/remote/card';
 import { flatten } from 'lodash';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
+import Badge from '@/components/shared/Badge';
+import { useNavigate } from 'react-router-dom';
 
 function CardList() {
+  const navigate = useNavigate();
   const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery(
     ['cards'],
     ({ pageParam }) => {
@@ -24,6 +27,12 @@ function CardList() {
     fetchNextPage();
   }, [fetchNextPage, hasNextPage, isFetching]);
 
+  useEffect(() => {
+    if (data && data.pages.length === 1 && hasNextPage && !isFetching) {
+      loadMore();
+    }
+  }, [data, hasNextPage, isFetching, loadMore]);
+
   if (data == null) {
     return null;
   }
@@ -34,13 +43,16 @@ function CardList() {
     <div>
       <InfiniteScroll
         dataLength={cards.length}
-        next={fetchNextPage}
+        next={loadMore}
         hasMore={hasNextPage ?? false}
-        loader={<h4>Loading...</h4>}
+        loader={<></>}
+        scrollThreshold="100px"
+        style={{ minHeight: '100vh', overflow: 'visible' }}
       >
-        {cards.map((card, index) => {
-          return (
-            <ListRow
+        <ul>
+          {cards.map((card, index) => {
+            return (
+              <ListRow
               key={card.id}
               contents={
                 <ListRow.Texts
@@ -48,14 +60,15 @@ function CardList() {
                   subTitle={`${card.name} 카드`}
                 />
               }
-              right={<div>{card.payback && `${card.payback}%`}</div>}
+              right={card.payback && <Badge label={`${card.payback}%`} />}
               withArrow={true}
               onClick={() => {
-                console.log('click');
+                navigate(`/card/${card.id}`);
               }}
             />
-          );
-        })}
+            );
+          })}
+        </ul>
       </InfiniteScroll>
     </div>
   );

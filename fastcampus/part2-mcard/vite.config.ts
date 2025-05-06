@@ -28,6 +28,7 @@ export default defineConfig({
       '@mock': path.resolve(__dirname, './src/mock'),
       '@remote': path.resolve(__dirname, './src/remote'),
       '@constants': path.resolve(__dirname, './src/constants'),
+      '@stores': path.resolve(__dirname, './src/stores'),
     },
   },
 });

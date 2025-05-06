@@ -38,7 +38,8 @@
       "@models/*": ["src/models/*"],
       "@mock/*": ["src/mock/*"],
       "@remote/*": ["src/remote/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@stores/*": ["src/stores/*"]
     }
   },
   "include": ["src"]

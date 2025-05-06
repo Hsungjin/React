@@ -13,7 +13,7 @@ function Top({ title, subTitle }: TopProps) {
       <Text typography="t4" bold={true}>
         {title}
       </Text>
-      <Text typography="t7">{subTitle}</Text>
+      <Text typography="t6">{subTitle}</Text>
     </Flex>
   );
 }

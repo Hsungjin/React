@@ -7,6 +7,7 @@ export default css`
   :root {
     --dimmend-z-index: 10;
     --alert-z-index: 11;
+    --navbar-z-index: 12;
   }
 
   html,
@@ -150,14 +151,7 @@ export default css`
   }
 
   a {
-    color: #fff;
-    text-decoration: none;
-    outline: none;
-  }
-  a:hover,
-  a:active {
-    text-decoration: none;
-    color: #fff;
-    background-color: #f59000;
+    color: blue;
+    text-decoration: none; /* no underline */
   }
 `;

@@ -5,6 +5,7 @@ import { Global } from '@emotion/react';
 import globalStyled from './styles/globalStyled.ts';
 import { AlertContextProvider } from '@contexts/AlertContext.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import AuthGuard from '@/components/auth/AuthGuard';
 
 const client = new QueryClient({
   defaultOptions: {},
@@ -15,7 +16,9 @@ createRoot(document.getElementById('root')!).render(
     <Global styles={globalStyled} />
     <QueryClientProvider client={client}>
       <AlertContextProvider>
-        <App />
+        <AuthGuard>
+          <App />
+        </AuthGuard>
       </AlertContextProvider>
     </QueryClientProvider>
   </StrictMode>

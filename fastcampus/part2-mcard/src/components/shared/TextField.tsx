@@ -50,6 +50,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           aria-invalid={hasError}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          style={{ borderRadius: 8 }}
           {...props}
         />
         {helpMessage ? (
