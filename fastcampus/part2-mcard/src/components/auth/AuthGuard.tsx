@@ -12,7 +12,6 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsInitialized(true);
       if (user) {
-        console.log('user', user);
         setUser({
           uid: user.uid,
           email: user.email ?? '',

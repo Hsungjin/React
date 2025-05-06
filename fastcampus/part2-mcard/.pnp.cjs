@@ -41,6 +41,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/lodash", "npm:4.17.16"],\
           ["@types/node", "npm:22.15.3"],\
+          ["@types/qs", "npm:6.9.18"],\
           ["@types/react", "npm:19.1.2"],\
           ["@types/react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.3"],\
           ["@types/validator", "npm:13.15.0"],\
@@ -59,6 +60,7 @@ const RAW_RUNTIME_STATE =
           ["lodash", "npm:4.17.21"],\
           ["part2-mcard", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
+          ["qs", "npm:6.14.0"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.0"],\
           ["react-infinite-scroll-component", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:6.1.0"],\
@@ -2698,6 +2700,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/@types-parse-json-npm-4.0.2-f87f65692e-10c0.zip/node_modules/@types/parse-json/",\
         "packageDependencies": [\
           ["@types/parse-json", "npm:4.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/qs", [\
+      ["npm:6.9.18", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-qs-npm-6.9.18-125db28c30-10c0.zip/node_modules/@types/qs/",\
+        "packageDependencies": [\
+          ["@types/qs", "npm:6.9.18"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5833,6 +5844,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/lodash", "npm:4.17.16"],\
           ["@types/node", "npm:22.15.3"],\
+          ["@types/qs", "npm:6.9.18"],\
           ["@types/react", "npm:19.1.2"],\
           ["@types/react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.3"],\
           ["@types/validator", "npm:13.15.0"],\
@@ -5851,6 +5863,7 @@ const RAW_RUNTIME_STATE =
           ["lodash", "npm:4.17.21"],\
           ["part2-mcard", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
+          ["qs", "npm:6.14.0"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.0"],\
           ["react-infinite-scroll-component", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:6.1.0"],\
@@ -6054,6 +6067,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/punycode-npm-2.3.1-97543c420d-10c0.zip/node_modules/punycode/",\
         "packageDependencies": [\
           ["punycode", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["qs", [\
+      ["npm:6.14.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/qs-npm-6.14.0-6b298311eb-10c0.zip/node_modules/qs/",\
+        "packageDependencies": [\
+          ["qs", "npm:6.14.0"],\
+          ["side-channel", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\

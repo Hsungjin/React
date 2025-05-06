@@ -4,8 +4,9 @@ import { useCallback, useState } from 'react';
 import FixedBottomButton from '@shared/FixedBottomButton';
 
 import { 약관목룍 } from '@constants/apply';
+import { ApplyValues } from '@/models/apply';
 
-function Terms({ onNext }: { onNext: (terms: string[]) => void }) {
+function Terms({ onNext }: { onNext: (terms: ApplyValues['terms']) => void }) {
   const [termsAgreements, setTermsAgreements] = useState(() => {
     return 약관목룍.reduce<Record<string, boolean>>((prev, term) => {
       return {

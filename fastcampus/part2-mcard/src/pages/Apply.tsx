@@ -1,26 +1,55 @@
-import Terms from '@/components/apply/Terms';
-import BasicInfo from '@/components/apply/BasicInfo';
-import CardInfo from '@/components/apply/CardInfo';
-
+import Apply from '@/components/apply';
+import useApplyCardMutation from '@/components/apply/hooks/useApplyCardMutation';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import usePollApplyStatus from '@/components/apply/hooks/usePollApplyStatus';
+import { updateApplyCard } from '@/remote/apply';
+import { APPLY_STATUS } from '@/models/apply';
+import useUser from '@/hooks/auth/useUser';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function ApplyPage() {
+  const user = useUser().user;
   const { id = '' } = useParams();
-  const [step, setStep] = useState(0);
+  const navigate = useNavigate();
+  const [readyToPoll, setReadyToPoll] = useState(false);
 
-  const handleTermsChange = (values: string[]) => {
-    console.log(values);
-    setStep(1);
-  };
+  usePollApplyStatus({
+    onSuccess: async () => {
+      await updateApplyCard({
+        cardId: id,
+        userId: user?.uid as string,
+        applyValues: { status: APPLY_STATUS.COMPLETE },
+      });
+      navigate('/apply/done?success=true', {
+        replace: true,
+      });
+    },
+    onError: async () => {
+      await updateApplyCard({
+        cardId: id,
+        userId: user?.uid as string,
+        applyValues: { status: APPLY_STATUS.REJECT },
+      });
+      navigate('/apply/done?success=false', {
+        replace: true,
+      });
+    },
+    enabled: readyToPoll,
+  });
+  const { mutate, isLoading: 카드를신청중인가 } = useApplyCardMutation({
+    onSuccess: () => {
+      setReadyToPoll(true);
+    },
+    onError: () => {
+      window.history.back();
+    },
+  });
 
-  return (
-    <div>
-      {step === 0 && <Terms onNext={handleTermsChange} />}
-      {step === 1 && <BasicInfo />}
-      {step === 2 && <CardInfo />}
-    </div>
-  );
+  if (readyToPoll || 카드를신청중인가) {
+    return <div>카드 신청 완료</div>;
+  }
+
+  return <Apply onSubmit={mutate} />;
 }
 
 export default ApplyPage;
