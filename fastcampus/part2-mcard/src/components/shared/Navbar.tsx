@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import { css } from '@emotion/react';
-import { signOut } from 'firebase/auth';
 import { colors } from '@/styles/colorPalette';
 
 import Flex from '@shared/Flex';
@@ -8,7 +7,7 @@ import Button from '@shared/Button';
 import Text from '@shared/Text';
 import useUser from '@hooks/auth/useUser';
 import { useCallback } from 'react';
-import { auth } from '@remote/firebase';
+import MyImage from '@components/my/MyImage';
 
 function Navbar() {
   const location = useLocation();
@@ -16,17 +15,12 @@ function Navbar() {
   const showSignButton =
     ['/signup', '/signin'].includes(location.pathname) === false;
 
-  const handleSignOut = useCallback(() => {
-    signOut(auth);
-    console.log('user', user);
-  }, []);
-
   const renderButton = useCallback(() => {
     if (user != null) {
       return (
-        <Button size="small" onClick={handleSignOut}>
-          로그아웃
-        </Button>
+        <Link to="/my">
+          <MyImage />
+        </Link>
       );
     }
 
@@ -39,7 +33,7 @@ function Navbar() {
     }
 
     return null;
-  }, [user, handleSignOut, showSignButton]);
+  }, [user, showSignButton]);
 
   return (
     <Flex align="center" justify="space-between" css={navbarContainerStyles}>

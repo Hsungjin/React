@@ -11,27 +11,45 @@ function Apply({ onSubmit }: { onSubmit: (values: ApplyValues) => void }) {
   const user = useUser().user;
   const { id = '' } = useParams();
 
-  const [step, setStep] = useState<number>(0);
-  const [applyValues, setApplyValues] = useState<Partial<ApplyValues>>({
-    userId: user?.uid,
-    cardId: id as string,
+  const storageKey = `applied-${user?.uid}-${id}`;
+
+  const [applyValues, setApplyValues] = useState<Partial<ApplyValues>>(() => {
+    const applied = localStorage.getItem(storageKey);
+
+    if (applied == null) {
+      return {
+        userId: user?.uid,
+        cardId: id as string,
+        step: 0,
+      };
+    }
+
+    return JSON.parse(applied);
   });
 
   useEffect(() => {
-    if (step === 3) {
+    if (applyValues.step === 3) {
+      localStorage.removeItem(storageKey);
+
       onSubmit({
         ...applyValues,
         appliedAt: new Date(),
         status: APPLY_STATUS.PROGRESS,
       } as ApplyValues);
+    } else {
+      console.log(applyValues);
+      localStorage.setItem(storageKey, JSON.stringify(applyValues));
     }
-  }, [step]);
+  }, [applyValues, applyValues.step, onSubmit, storageKey]);
 
   const handleTermsChange = (values: ApplyValues['terms']) => {
     console.log(values);
 
-    setApplyValues((prevValues) => ({ ...prevValues, values }));
-    setStep((prevStep) => prevStep + 1);
+    setApplyValues((prevValues) => ({
+      ...prevValues,
+      values,
+      step: (prevValues.step as number) + 1,
+    }));
   };
 
   const handleBasicInfoChange = (
@@ -39,8 +57,11 @@ function Apply({ onSubmit }: { onSubmit: (values: ApplyValues) => void }) {
   ) => {
     console.log(values);
 
-    setApplyValues((prevValues) => ({ ...prevValues, ...values }));
-    setStep((prevStep) => prevStep + 1);
+    setApplyValues((prevValues) => ({
+      ...prevValues,
+      ...values,
+      step: (prevValues.step as number) + 1,
+    }));
   };
 
   const handleCardInfoChange = (
@@ -48,15 +69,18 @@ function Apply({ onSubmit }: { onSubmit: (values: ApplyValues) => void }) {
   ) => {
     console.log(values);
 
-    setApplyValues((prevValues) => ({ ...prevValues, ...values }));
-    setStep((prevStep) => prevStep + 1);
+    setApplyValues((prevValues) => ({
+      ...prevValues,
+      ...values,
+      step: (prevValues.step as number) + 1,
+    }));
   };
 
   return (
     <div>
-      {step === 0 && <Terms onNext={handleTermsChange} />}
-      {step === 1 && <BasicInfo onNext={handleBasicInfoChange} />}
-      {step === 2 && <CardInfo onNext={handleCardInfoChange} />}
+      {applyValues.step === 0 && <Terms onNext={handleTermsChange} />}
+      {applyValues.step === 1 && <BasicInfo onNext={handleBasicInfoChange} />}
+      {applyValues.step === 2 && <CardInfo onNext={handleCardInfoChange} />}
     </div>
   );
 }
