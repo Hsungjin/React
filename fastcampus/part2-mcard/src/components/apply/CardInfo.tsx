@@ -10,10 +10,6 @@ type CardInfoValues = Pick<
   'isMasterCard' | 'isRfCard' | 'isHipassCard'
 >;
 
-interface CardInfoProps {
-  onNext: (values: CardInfoValues) => void;
-}
-
 function CardInfo({ onNext }: { onNext: (values: CardInfoValues) => void }) {
   const [cardValues, setCardValues] = useState<CardInfoValues>({
     isMasterCard: false,

@@ -11,15 +11,24 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 function AdBanners() {
-  const { data } = useQuery(['adBanners'], () => getAdBanners());
+  const { data, isLoading } = useQuery(['adBanners'], () => getAdBanners());
+
+  if (data == null || isLoading) {
+    return (
+      <Conatiner>
+        <Flex direction="column" css={bannerConatinerStyles}>
+          <Text bold={true} typography="t5">
+            &nbsp;
+          </Text>
+          <Text typography="t7">&nbsp;</Text>
+        </Flex>
+      </Conatiner>
+    );
+  }
 
   return (
     <Conatiner>
-      <Swiper
-        spaceBetween={8}
-        slidesPerView={1}
-        loop={false}
-      >
+      <Swiper spaceBetween={8} slidesPerView={1} loop={false}>
         {data?.map((banners) => {
           return (
             <SwiperSlide key={banners.id}>

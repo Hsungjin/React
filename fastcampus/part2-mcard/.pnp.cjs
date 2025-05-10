@@ -39,7 +39,7 @@ const RAW_RUNTIME_STATE =
           ["@types/babel__traverse", "npm:7.20.7"],\
           ["@types/estree", "npm:1.0.7"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/lodash", "npm:4.17.16"],\
+          ["@types/lodash.flatten", "npm:4.4.9"],\
           ["@types/node", "npm:22.15.3"],\
           ["@types/qs", "npm:6.9.18"],\
           ["@types/react", "npm:19.1.2"],\
@@ -58,12 +58,14 @@ const RAW_RUNTIME_STATE =
           ["framer-motion", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:12.9.7"],\
           ["globals", "npm:16.0.0"],\
           ["lodash", "npm:4.17.21"],\
+          ["lodash.flatten", "npm:4.4.0"],\
           ["part2-mcard", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["qs", "npm:6.14.0"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.0"],\
           ["react-infinite-scroll-component", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:6.1.0"],\
+          ["react-intersection-observer", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:9.16.0"],\
           ["react-query", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:3.39.3"],\
           ["react-router-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:7.5.3"],\
           ["swiper", "npm:11.2.6"],\
@@ -2681,6 +2683,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/@types-lodash-npm-4.17.16-edc964ca5b-10c0.zip/node_modules/@types/lodash/",\
         "packageDependencies": [\
           ["@types/lodash", "npm:4.17.16"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/lodash.flatten", [\
+      ["npm:4.4.9", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-lodash.flatten-npm-4.4.9-33ad4adccf-10c0.zip/node_modules/@types/lodash.flatten/",\
+        "packageDependencies": [\
+          ["@types/lodash", "npm:4.17.16"],\
+          ["@types/lodash.flatten", "npm:4.4.9"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5315,6 +5327,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["lodash.flatten", [\
+      ["npm:4.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/lodash.flatten-npm-4.4.0-495935e617-10c0.zip/node_modules/lodash.flatten/",\
+        "packageDependencies": [\
+          ["lodash.flatten", "npm:4.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["lodash.merge", [\
       ["npm:4.6.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/lodash.merge-npm-4.6.2-77cb4416bf-10c0.zip/node_modules/lodash.merge/",\
@@ -5842,7 +5863,7 @@ const RAW_RUNTIME_STATE =
           ["@types/babel__traverse", "npm:7.20.7"],\
           ["@types/estree", "npm:1.0.7"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/lodash", "npm:4.17.16"],\
+          ["@types/lodash.flatten", "npm:4.4.9"],\
           ["@types/node", "npm:22.15.3"],\
           ["@types/qs", "npm:6.9.18"],\
           ["@types/react", "npm:19.1.2"],\
@@ -5861,12 +5882,14 @@ const RAW_RUNTIME_STATE =
           ["framer-motion", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:12.9.7"],\
           ["globals", "npm:16.0.0"],\
           ["lodash", "npm:4.17.21"],\
+          ["lodash.flatten", "npm:4.4.0"],\
           ["part2-mcard", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["qs", "npm:6.14.0"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.0"],\
           ["react-infinite-scroll-component", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:6.1.0"],\
+          ["react-intersection-observer", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:9.16.0"],\
           ["react-query", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:3.39.3"],\
           ["react-router-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:7.5.3"],\
           ["swiper", "npm:11.2.6"],\
@@ -6140,6 +6163,32 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-intersection-observer", [\
+      ["npm:9.16.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/react-intersection-observer-npm-9.16.0-9bb417d9c9-10c0.zip/node_modules/react-intersection-observer/",\
+        "packageDependencies": [\
+          ["react-intersection-observer", "npm:9.16.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:9.16.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-intersection-observer-virtual-86c52ebba3/6/.yarn/berry/cache/react-intersection-observer-npm-9.16.0-9bb417d9c9-10c0.zip/node_modules/react-intersection-observer/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.1.2"],\
+          ["@types/react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.3"],\
+          ["react", "npm:19.1.0"],\
+          ["react-dom", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:19.1.0"],\
+          ["react-intersection-observer", "virtual:f5d81c59ec4d243f6e29b1f7c84233721aab69c9aa0b996c5d729745187e788609bdf0ef6a40062d03869e766e24ba0e53089dcb5da7c960d44358946c389ad8#npm:9.16.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
           "react"\
         ],\
         "linkType": "HARD"\

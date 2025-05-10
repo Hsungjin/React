@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { ApplyValues, APPLY_STATUS } from '@/models/apply';
 import { useState, useEffect } from 'react';
 import useUser from '@/hooks/auth/useUser';
+import ProgressBar from '@shared/ProgressBar';
 
 function Apply({ onSubmit }: { onSubmit: (values: ApplyValues) => void }) {
   const user = useUser().user;
@@ -78,6 +79,7 @@ function Apply({ onSubmit }: { onSubmit: (values: ApplyValues) => void }) {
 
   return (
     <div>
+      <ProgressBar progress={(applyValues.step as number) / 3} />
       {applyValues.step === 0 && <Terms onNext={handleTermsChange} />}
       {applyValues.step === 1 && <BasicInfo onNext={handleBasicInfoChange} />}
       {applyValues.step === 2 && <CardInfo onNext={handleCardInfoChange} />}

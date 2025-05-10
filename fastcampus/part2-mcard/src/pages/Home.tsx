@@ -1,12 +1,9 @@
 import Top from '@/components/shared/Top';
-import { getCards } from '@/remote/card';
-import { getAdBanners } from '@/remote/adBanner';
-import { useEffect, useState } from 'react';
-
-import { Card } from '@models/card';
-import { AdBanner } from '@models/card';
 import AdBanners from '@/components/home/AdBanners';
 import CardList from '@/components/home/CardList';
+import Button from '@shared/Button';
+import { Suspense } from 'react';
+import ListRow from '@shared/ListRow';
 
 function HomePage() {
   // const [cardList, setCardList] = useState<Card[]>([]);
@@ -23,8 +20,17 @@ function HomePage() {
         title="혜택 좋은 카드"
         subTitle="회원님을 위해서 혜택 좋은 카드를 모아봤어요."
       />
+      <Button>테스트</Button>
       <AdBanners />
-      <CardList />
+      <Button>테스트</Button>
+      <Suspense
+        fallback={[...new Array(10)].map((_, index) => (
+          <ListRow.Skeleton key={index} />
+        ))}
+      >
+        <CardList />
+      </Suspense>
+      <Button>테스트</Button>
     </div>
   );
 }

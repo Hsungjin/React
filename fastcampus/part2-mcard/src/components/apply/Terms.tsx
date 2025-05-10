@@ -51,7 +51,7 @@ function Terms({ onNext }: { onNext: (terms: ApplyValues['terms']) => void }) {
             key={term.id}
             checked={termsAgreements[term.id]}
             link={term.link}
-            onChange={(event, checked) =>
+            onChange={(_, checked) =>
               setTermsAgreements((prev) => ({
                 ...prev,
                 [term.id]: checked,

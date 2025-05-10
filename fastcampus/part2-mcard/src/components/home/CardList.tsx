@@ -1,7 +1,7 @@
 import ListRow from '@shared/ListRow';
 import { useInfiniteQuery } from 'react-query';
 import { getCards } from '@/remote/card';
-import { flatten } from 'lodash';
+import flatten from 'lodash.flatten';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useCallback, useEffect } from 'react';
 import Badge from '@/components/shared/Badge';
@@ -16,6 +16,7 @@ function CardList() {
     },
     {
       getNextPageParam: (lastPage) => lastPage.lastVisible,
+      suspense: true,
     }
   );
 
@@ -45,7 +46,7 @@ function CardList() {
         dataLength={cards.length}
         next={loadMore}
         hasMore={hasNextPage ?? false}
-        loader={<></>}
+        loader={<ListRow.Skeleton />}
         scrollThreshold="100px"
         style={{ minHeight: '100vh', overflow: 'visible' }}
       >
@@ -53,19 +54,19 @@ function CardList() {
           {cards.map((card, index) => {
             return (
               <ListRow
-              key={card.id}
-              contents={
-                <ListRow.Texts
-                  title={`${index + 1}위`}
-                  subTitle={`${card.name} 카드`}
-                />
-              }
-              right={card.payback && <Badge label={`${card.payback}%`} />}
-              withArrow={true}
-              onClick={() => {
-                navigate(`/card/${card.id}`);
-              }}
-            />
+                key={card.id}
+                contents={
+                  <ListRow.Texts
+                    title={`${index + 1}위`}
+                    subTitle={`${card.name} 카드`}
+                  />
+                }
+                right={card.payback && <Badge label={`${card.payback}%`} />}
+                withArrow={true}
+                onClick={() => {
+                  navigate(`/card/${card.id}`);
+                }}
+              />
             );
           })}
         </ul>

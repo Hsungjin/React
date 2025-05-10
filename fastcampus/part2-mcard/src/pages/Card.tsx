@@ -13,6 +13,8 @@ import Text from '@/components/shared/Text';
 import { useCallback } from 'react';
 import { useAlertContext } from '@contexts/AlertContext';
 import useUser from '@hooks/auth/useUser';
+import Review from '@components/card/Review';
+import Spacing from '@shared/Spacing';
 
 function CardPage() {
   const { id = '' } = useParams();
@@ -81,25 +83,20 @@ function CardPage() {
         </Flex>
       ) : null}
 
-      <FixedBottomButton label="신청하기" onClick={moveToApply} />
+      <Spacing size={1000} />
+      <Review />
+      <Spacing size={100} />
+
+      <FixedBottomButton
+        label="1분만에 신청하고 혜택받기"
+        onClick={moveToApply}
+      />
     </div>
   );
 }
 
 function removeHtmlTags(text: string) {
-  let output = '';
-
-  for (let i = 0; i < text.length; i++) {
-    if (text[i] === '<') {
-      while (text[i] !== '>') {
-        i++;
-      }
-    } else {
-      output += text[i];
-    }
-  }
-
-  return output;
+  return text.replace(/<[^>]*>?/g, '');
 }
 
 const termsContainerStyles = css`
