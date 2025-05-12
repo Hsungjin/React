@@ -1,15 +1,19 @@
-import { Option } from '@/models/apply';
-import { colors } from '@/styles/colorPalette';
-import styled from '@emotion/styled';
-import { forwardRef } from 'react';
+import { colors } from '@/styles/colorPalette'
+import styled from '@emotion/styled'
+import { forwardRef } from 'react'
 
-import Flex from '@shared/Flex';
-import Text from '@shared/Text';
+import Flex from '@shared/Flex'
+import Text from '@shared/Text'
+
+export interface Option {
+  label: string
+  value: string | number | undefined
+}
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  label?: string;
-  options: Option[];
-  placeholder?: string;
+  label?: string
+  options: Option[]
+  placeholder?: string
 }
 
 const BaseSelect = styled.select`
@@ -23,7 +27,7 @@ const BaseSelect = styled.select`
   &:required:invalid {
     color: #9999;
   }
-`;
+`
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(
   { label, options, placeholder, value, ...props },
@@ -50,7 +54,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(
         ))}
       </BaseSelect>
     </Flex>
-  );
-});
+  )
+})
 
-export default Select;
+export default Select

@@ -4,3 +4,5 @@ fastcampus/part1-wedding/.env
 .DS_Store
 
 fastcampus/part2-mcard/src/.env
+
+fastcampus/part3-love-trip/.env

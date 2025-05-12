@@ -1,24 +1,25 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
 import App from './App.tsx'
 
-import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { Global } from '@emotion/react'
+import globalStyled from '@styles/globalStyled'
 
-const Container = styled.div`
-  color: pink;
-`
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 0,
+    },
+  },
+})
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
-
-    <Container>Hi Hi Hi</Container>
-      <h2 css={css`
-        color: pink;
-      `}>
-        Hello World
-      </h2>
+    <Global styles={globalStyled} />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </StrictMode>,
 )

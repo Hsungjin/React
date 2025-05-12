@@ -1,5 +1,4 @@
 import {
-  FocusEventHandler,
   forwardRef,
   InputHTMLAttributes,
   useState,
