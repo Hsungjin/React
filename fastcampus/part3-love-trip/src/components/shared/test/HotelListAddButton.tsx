@@ -24,7 +24,7 @@ function HotelListAddButton() {
         starRating: random(1, 5),
         ...HOTEL,
         ...(EVENTS[idx] != null && {
-          event: EVENTS[idx],
+          events: EVENTS[idx],
         }),
       }
     })

@@ -64,4 +64,5 @@ export const colors = {
   teal900: 'var(--teal900)',
 }
 
+
 export type Colors = keyof typeof colors

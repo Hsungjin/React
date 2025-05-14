@@ -1,4 +1,6 @@
+import { differenceInMilliseconds, parseISO } from 'date-fns'
 import { css } from '@emotion/react'
+import { Link } from 'react-router-dom'
 
 import { type Hotel as IHotel } from '@/models/hotel'
 import ListRow from '@shared/ListRow'
@@ -6,14 +8,64 @@ import Flex from '@shared/Flex'
 import Text from '@shared/Text'
 import Spacing from '@shared/Spacing'
 import addDelimiter from '@utils/addDelimiter'
+import Tag from '../shared/Tag'
+import formatTime from '@utils/formatTime'
+import { useEffect, useState } from 'react'
 
 function Hotel({ hotel }: { hotel: IHotel }) {
-  console.log(hotel)
+  const [remainedTime, setRemainedTime] = useState(0)
+
+  useEffect(() => {
+    if (hotel.events == null || hotel.events.promoEndTime == null) {
+      return
+    }
+
+    const promoEndTime = hotel.events.promoEndTime
+
+    const timer = setInterval(() => {
+      const 남은초 = differenceInMilliseconds(
+        parseISO(promoEndTime),
+        new Date(),
+      )
+
+      if (남은초 < 0) {
+        clearInterval(timer)
+      }
+
+      setRemainedTime(남은초)
+    }, 1000)
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [hotel.events])
+
+  const tagComponent = () => {
+    if (hotel.events == null) {
+      return null
+    }
+
+    const { name, tagThemeStyle } = hotel.events
+
+    const promotionText = remainedTime > 0 ? `${formatTime(remainedTime)} 남음` : ''
+
+    return (
+      <div>
+        <Tag color={tagThemeStyle.fontColor} backgroundColor={tagThemeStyle.backgroundColor}>
+          {name} {promotionText}
+        </Tag>
+        <Spacing size={10} />
+      </div>
+    )
+  }
+
   return (
     <div>
-      <ListRow
-        contents={
-          <Flex direction="column">
+      <Link to={`/hotel/${hotel.id}`}>
+        <ListRow
+          contents={
+            <Flex direction="column">
+            {tagComponent()}
             <ListRow.Texts
               title={hotel.name}
               subTitle={hotel.comment}
@@ -33,8 +85,9 @@ function Hotel({ hotel }: { hotel: IHotel }) {
             </Text>
           </Flex>
         }
-        style={containerStyles}
-      />
+          style={containerStyles}
+        />
+      </Link>
     </div>
   )
 }
