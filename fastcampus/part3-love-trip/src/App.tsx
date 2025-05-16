@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import HotelListPage from '@pages/HotelList'
 import TestPage from '@pages/Test'
+import HotelPage from '@pages/Hotel'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HotelListPage />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="/hotel/:id" element={<HotelPage />} />
       </Routes>
     </BrowserRouter>
   )
