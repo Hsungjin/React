@@ -35,8 +35,10 @@ const RAW_RUNTIME_STATE =
           ["@emotion/react", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:11.14.0"],\
           ["@emotion/styled", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:11.14.0"],\
           ["@eslint/js", "npm:9.26.0"],\
+          ["@react-google-maps/api", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:2.20.6"],\
           ["@types/node", "npm:22.15.17"],\
           ["@types/react", "npm:19.1.3"],\
+          ["@types/react-copy-to-clipboard", "npm:5.0.7"],\
           ["@types/react-dom", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:19.1.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:8.32.0"],\
           ["@typescript-eslint/parser", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:8.32.0"],\
@@ -53,6 +55,7 @@ const RAW_RUNTIME_STATE =
           ["part3-love-trip", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["react", "npm:19.1.0"],\
+          ["react-copy-to-clipboard", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:5.1.0"],\
           ["react-dom", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:19.1.0"],\
           ["react-infinite-scroll-component", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:6.1.0"],\
           ["react-markdown", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:10.1.0"],\
@@ -2128,6 +2131,26 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@googlemaps/js-api-loader", [\
+      ["npm:1.16.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@googlemaps-js-api-loader-npm-1.16.8-81aa9d2a9a-10c0.zip/node_modules/@googlemaps/js-api-loader/",\
+        "packageDependencies": [\
+          ["@googlemaps/js-api-loader", "npm:1.16.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@googlemaps/markerclusterer", [\
+      ["npm:2.5.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@googlemaps-markerclusterer-npm-2.5.3-fff312e138-10c0.zip/node_modules/@googlemaps/markerclusterer/",\
+        "packageDependencies": [\
+          ["@googlemaps/markerclusterer", "npm:2.5.3"],\
+          ["fast-deep-equal", "npm:3.1.3"],\
+          ["supercluster", "npm:8.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@grpc/grpc-js", [\
       ["npm:1.9.15", {\
         "packageLocation": "../../../../../.yarn/berry/cache/@grpc-grpc-js-npm-1.9.15-ff69e71e58-10c0.zip/node_modules/@grpc/grpc-js/",\
@@ -2465,6 +2488,56 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@react-google-maps/api", [\
+      ["npm:2.20.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@react-google-maps-api-npm-2.20.6-a54679ed46-10c0.zip/node_modules/@react-google-maps/api/",\
+        "packageDependencies": [\
+          ["@react-google-maps/api", "npm:2.20.6"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:2.20.6", {\
+        "packageLocation": "./.yarn/__virtual__/@react-google-maps-api-virtual-44dace53d1/6/.yarn/berry/cache/@react-google-maps-api-npm-2.20.6-a54679ed46-10c0.zip/node_modules/@react-google-maps/api/",\
+        "packageDependencies": [\
+          ["@googlemaps/js-api-loader", "npm:1.16.8"],\
+          ["@googlemaps/markerclusterer", "npm:2.5.3"],\
+          ["@react-google-maps/api", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:2.20.6"],\
+          ["@react-google-maps/infobox", "npm:2.20.0"],\
+          ["@react-google-maps/marker-clusterer", "npm:2.20.0"],\
+          ["@types/google.maps", "npm:3.58.1"],\
+          ["@types/react", "npm:19.1.3"],\
+          ["@types/react-dom", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:19.1.3"],\
+          ["invariant", "npm:2.2.4"],\
+          ["react", "npm:19.1.0"],\
+          ["react-dom", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:19.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@react-google-maps/infobox", [\
+      ["npm:2.20.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@react-google-maps-infobox-npm-2.20.0-8b0393549b-10c0.zip/node_modules/@react-google-maps/infobox/",\
+        "packageDependencies": [\
+          ["@react-google-maps/infobox", "npm:2.20.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@react-google-maps/marker-clusterer", [\
+      ["npm:2.20.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@react-google-maps-marker-clusterer-npm-2.20.0-7f44bf4e63-10c0.zip/node_modules/@react-google-maps/marker-clusterer/",\
+        "packageDependencies": [\
+          ["@react-google-maps/marker-clusterer", "npm:2.20.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@rollup/rollup-android-arm-eabi", [\
       ["npm:4.40.2", {\
         "packageLocation": "./.yarn/unplugged/@rollup-rollup-android-arm-eabi-npm-4.40.2-3f90091688/node_modules/@rollup/rollup-android-arm-eabi/",\
@@ -2719,6 +2792,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/google.maps", [\
+      ["npm:3.58.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-google.maps-npm-3.58.1-df719add21-10c0.zip/node_modules/@types/google.maps/",\
+        "packageDependencies": [\
+          ["@types/google.maps", "npm:3.58.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/hast", [\
       ["npm:3.0.4", {\
         "packageLocation": "../../../../../.yarn/berry/cache/@types-hast-npm-3.0.4-640776a343-10c0.zip/node_modules/@types/hast/",\
@@ -2782,6 +2864,24 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/react", "npm:19.1.3"],\
           ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:19.1.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-react-npm-19.1.4-b2eb0fdf24-10c0.zip/node_modules/@types/react/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.1.4"],\
+          ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/react-copy-to-clipboard", [\
+      ["npm:5.0.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-react-copy-to-clipboard-npm-5.0.7-cf9459d351-10c0.zip/node_modules/@types/react-copy-to-clipboard/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.1.4"],\
+          ["@types/react-copy-to-clipboard", "npm:5.0.7"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3649,6 +3749,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/cookie-signature-npm-1.2.2-8474a8ac29-10c0.zip/node_modules/cookie-signature/",\
         "packageDependencies": [\
           ["cookie-signature", "npm:1.2.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["copy-to-clipboard", [\
+      ["npm:3.3.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/copy-to-clipboard-npm-3.3.3-6964e6cfad-10c0.zip/node_modules/copy-to-clipboard/",\
+        "packageDependencies": [\
+          ["copy-to-clipboard", "npm:3.3.3"],\
+          ["toggle-selection", "npm:1.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5311,6 +5421,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["invariant", [\
+      ["npm:2.2.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/invariant-npm-2.2.4-717fbdb119-10c0.zip/node_modules/invariant/",\
+        "packageDependencies": [\
+          ["invariant", "npm:2.2.4"],\
+          ["loose-envify", "npm:1.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["ip-address", [\
       ["npm:9.0.5", {\
         "packageLocation": "../../../../../.yarn/berry/cache/ip-address-npm-9.0.5-9fa024d42a-10c0.zip/node_modules/ip-address/",\
@@ -5811,6 +5931,15 @@ const RAW_RUNTIME_STATE =
           ["jsx-ast-utils", "npm:3.3.5"],\
           ["object.assign", "npm:4.1.7"],\
           ["object.values", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["kdbush", [\
+      ["npm:4.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/kdbush-npm-4.0.2-e4894ed9f4-10c0.zip/node_modules/kdbush/",\
+        "packageDependencies": [\
+          ["kdbush", "npm:4.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6839,8 +6968,10 @@ const RAW_RUNTIME_STATE =
           ["@emotion/react", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:11.14.0"],\
           ["@emotion/styled", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:11.14.0"],\
           ["@eslint/js", "npm:9.26.0"],\
+          ["@react-google-maps/api", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:2.20.6"],\
           ["@types/node", "npm:22.15.17"],\
           ["@types/react", "npm:19.1.3"],\
+          ["@types/react-copy-to-clipboard", "npm:5.0.7"],\
           ["@types/react-dom", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:19.1.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:8.32.0"],\
           ["@typescript-eslint/parser", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:8.32.0"],\
@@ -6857,6 +6988,7 @@ const RAW_RUNTIME_STATE =
           ["part3-love-trip", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["react", "npm:19.1.0"],\
+          ["react-copy-to-clipboard", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:5.1.0"],\
           ["react-dom", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:19.1.0"],\
           ["react-infinite-scroll-component", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:6.1.0"],\
           ["react-markdown", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:10.1.0"],\
@@ -7146,6 +7278,30 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/react-npm-19.1.0-9804a7da5b-10c0.zip/node_modules/react/",\
         "packageDependencies": [\
           ["react", "npm:19.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-copy-to-clipboard", [\
+      ["npm:5.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/react-copy-to-clipboard-npm-5.1.0-de9742f2bc-10c0.zip/node_modules/react-copy-to-clipboard/",\
+        "packageDependencies": [\
+          ["react-copy-to-clipboard", "npm:5.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:5.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-copy-to-clipboard-virtual-a91cc2d4ca/6/.yarn/berry/cache/react-copy-to-clipboard-npm-5.1.0-de9742f2bc-10c0.zip/node_modules/react-copy-to-clipboard/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.1.3"],\
+          ["copy-to-clipboard", "npm:3.3.3"],\
+          ["prop-types", "npm:15.8.1"],\
+          ["react", "npm:19.1.0"],\
+          ["react-copy-to-clipboard", "virtual:12f718db60aeed06aab8f7dd0a4b6ab803b056d6024283aa4574d8889091cf1727fd5d778029028f9d9a785f98325997a4f5f821d42512967bc9db0537f5d18b#npm:5.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8027,6 +8183,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["supercluster", [\
+      ["npm:8.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/supercluster-npm-8.0.1-32b2d8d364-10c0.zip/node_modules/supercluster/",\
+        "packageDependencies": [\
+          ["kdbush", "npm:4.0.2"],\
+          ["supercluster", "npm:8.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["supports-color", [\
       ["npm:7.2.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/supports-color-npm-7.2.0-606bfcf7da-10c0.zip/node_modules/supports-color/",\
@@ -8107,6 +8273,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["is-number", "npm:7.0.0"],\
           ["to-regex-range", "npm:5.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["toggle-selection", [\
+      ["npm:1.0.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/toggle-selection-npm-1.0.6-c506b73005-10c0.zip/node_modules/toggle-selection/",\
+        "packageDependencies": [\
+          ["toggle-selection", "npm:1.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\

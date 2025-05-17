@@ -7,6 +7,8 @@ import {
   startAfter,
   doc,
   getDoc,
+  where,
+  documentId,
 } from 'firebase/firestore'
 
 import { COLLECTIONS } from '@constants/index'
@@ -49,4 +51,18 @@ export async function getHotel(id: string) {
     id,
     ...hotelDoc.data(),
   } as Hotel
+}
+
+export async function getRecommendHotels(hotelIds: string[]) {
+  const recommendQuery = query(
+    collection(store, COLLECTIONS.HOTEL),
+    where(documentId(), 'in', hotelIds),
+  )
+
+  const snapshot = await getDocs(recommendQuery)
+
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as Hotel[]
 }
