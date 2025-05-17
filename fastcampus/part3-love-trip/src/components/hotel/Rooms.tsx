@@ -12,8 +12,6 @@ import addDelimiter from '@/utils/addDelimiter'
 function Rooms({ hotelId }: { hotelId: string }) {
   const { data } = useRooms({ hotelId })
 
-  console.log(data)
-
   return (
     <Container>
       <Header justify="space-between">
