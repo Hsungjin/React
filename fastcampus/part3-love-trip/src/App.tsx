@@ -4,10 +4,13 @@ import HotelListPage from '@pages/HotelList'
 import TestPage from '@pages/Test'
 import HotelPage from '@pages/Hotel'
 import useLoadKakao from '@hooks/useLoadkakao'
+<<<<<<< HEAD
 import MyPage from '@pages/My'
 import SigninPage from '@pages/Signin'
 import AuthGuard from '@components/auth/AuthGuard'
 import Navbar from '@shared/Navbar'
+=======
+>>>>>>> origin/main
 
 function App() {
   useLoadKakao()
