@@ -40,7 +40,7 @@
       "@mock/*": ["src/mock/*"],
       "@remote/*": ["src/remote/*"],
       "@constants/*": ["src/constants/*"],
-      "@store/*": ["src/store/*"]
+      "@store/*": ["src/store/*"],
     }
   },
   "include": ["src"]

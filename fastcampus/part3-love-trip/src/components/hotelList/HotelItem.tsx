@@ -12,7 +12,7 @@ import Tag from '../shared/Tag'
 import formatTime from '@utils/formatTime'
 import { useEffect, useState } from 'react'
 
-function HotelItem({ hotel }: { hotel: Hotel }) {
+function HotelItem({ hotel, isLike }: { hotel: Hotel; isLike: boolean }) {
   const [remainedTime, setRemainedTime] = useState(0)
 
   useEffect(() => {
@@ -47,11 +47,15 @@ function HotelItem({ hotel }: { hotel: Hotel }) {
 
     const { name, tagThemeStyle } = hotel.events
 
-    const promotionText = remainedTime > 0 ? `${formatTime(remainedTime)} 남음` : ''
+    const promotionText =
+      remainedTime > 0 ? `${formatTime(remainedTime)} 남음` : ''
 
     return (
       <div>
-        <Tag color={tagThemeStyle.fontColor} backgroundColor={tagThemeStyle.backgroundColor}>
+        <Tag
+          color={tagThemeStyle.fontColor}
+          backgroundColor={tagThemeStyle.backgroundColor}
+        >
           {name} {promotionText}
         </Tag>
         <Spacing size={10} />
@@ -65,26 +69,43 @@ function HotelItem({ hotel }: { hotel: Hotel }) {
         <ListRow
           contents={
             <Flex direction="column">
-            {tagComponent()}
-            <ListRow.Texts
-              title={hotel.name}
-              subTitle={hotel.comment}
-            ></ListRow.Texts>
-            <Spacing size={4} />
-            <Text typography="t7" color="gray600">
-              {hotel.starRating}성급
-            </Text>
-          </Flex>
-        }
-        right={
-          <Flex direction="column" align="flex-end">
-            <img src={hotel.nameImageUrl} alt={hotel.name} css={imageStyles} />
-            <Spacing size={8} />
-            <Text bold={true} typography="t7">
-              {addDelimiter(hotel.price)}원
-            </Text>
-          </Flex>
-        }
+              {tagComponent()}
+              <ListRow.Texts
+                title={hotel.name}
+                subTitle={hotel.comment}
+              ></ListRow.Texts>
+              <Spacing size={4} />
+              <Text typography="t7" color="gray600">
+                {hotel.starRating}성급
+              </Text>
+            </Flex>
+          }
+          right={
+            <Flex
+              direction="column"
+              align="flex-end"
+              style={{ position: 'relative' }}
+            >
+              <img
+                src={
+                  isLike
+                    ? 'https://cdn4.iconfinder.com/data/icons/twitter-29/512/166_Heart_Love_Like_Twitter-128.png'
+                    : '	https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/heart-128.png'
+                }
+                alt="heart"
+                css={iconHeartStyles}
+              />
+              <img
+                src={hotel.nameImageUrl}
+                alt={hotel.name}
+                css={imageStyles}
+              />
+              <Spacing size={8} />
+              <Text bold={true} typography="t7">
+                {addDelimiter(hotel.price)}원
+              </Text>
+            </Flex>
+          }
           style={containerStyles}
         />
       </Link>
@@ -102,6 +123,14 @@ const imageStyles = css`
   border-radius: 8px;
   object-fit: cover;
   margin-left: 16px;
+`
+
+const iconHeartStyles = css`
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
 `
 
 export default HotelItem
