@@ -12,7 +12,19 @@ import Tag from '../shared/Tag'
 import formatTime from '@utils/formatTime'
 import { useEffect, useState } from 'react'
 
-function HotelItem({ hotel, isLike }: { hotel: Hotel; isLike: boolean }) {
+function HotelItem({
+  hotel,
+  isLike,
+  onLike,
+}: {
+  hotel: Hotel
+  isLike: boolean
+  onLike: ({
+    hotel,
+  }: {
+    hotel: Pick<Hotel, 'name' | 'id' | 'nameImageUrl'>
+  }) => void
+}) {
   const [remainedTime, setRemainedTime] = useState(0)
 
   useEffect(() => {
@@ -63,6 +75,17 @@ function HotelItem({ hotel, isLike }: { hotel: Hotel; isLike: boolean }) {
     )
   }
 
+  const handleLike = (e: React.MouseEvent<HTMLImageElement>) => {
+    e.preventDefault()
+    onLike({
+      hotel: {
+        name: hotel.name,
+        id: hotel.id,
+        nameImageUrl: hotel.nameImageUrl,
+      },
+    })
+  }
+
   return (
     <div>
       <Link to={`/hotel/${hotel.id}`}>
@@ -90,10 +113,11 @@ function HotelItem({ hotel, isLike }: { hotel: Hotel; isLike: boolean }) {
                 src={
                   isLike
                     ? 'https://cdn4.iconfinder.com/data/icons/twitter-29/512/166_Heart_Love_Like_Twitter-128.png'
-                    : '	https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/heart-128.png'
+                    : 'https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/heart-128.png'
                 }
                 alt="heart"
                 css={iconHeartStyles}
+                onClick={handleLike}
               />
               <img
                 src={hotel.nameImageUrl}

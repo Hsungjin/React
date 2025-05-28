@@ -6,8 +6,13 @@ import Text from '@shared/Text'
 import { css } from '@emotion/react'
 import type { Hotel } from '@models/hotel'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import useLike from '@hooks/like/useLike'
 
 function ActionButtons({ hotel }: { hotel: Hotel }) {
+  const { data: likes, mutate: like } = useLike()
+
+  const isLike = Boolean(likes?.find((like) => like.hotelId === hotel.id))
+
   const share = useShare()
 
   const { name, comment, nameImageUrl } = hotel
@@ -16,8 +21,14 @@ function ActionButtons({ hotel }: { hotel: Hotel }) {
     <Flex css={containerStyle}>
       <Button
         label="찜하기"
-        iconUrl="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-128.png"
-        onClick={() => {}}
+        iconUrl={
+          isLike
+            ? 'https://cdn4.iconfinder.com/data/icons/twitter-29/512/166_Heart_Love_Like_Twitter-128.png'
+            : 'https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/heart-128.png'
+        }
+        onClick={() => {
+          like({ hotel: { name, id: hotel.id, nameImageUrl } })
+        }}
       />
       <Button
         label="공유하기"

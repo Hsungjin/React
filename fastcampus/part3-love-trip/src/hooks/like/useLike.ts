@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 
 import { getLikes, toggleLike } from '@/remote/like'
 import { useUserStore } from '@/store/atom/user'
@@ -10,12 +10,13 @@ function useLike() {
   const user = useUserStore().getUser()
   const { open } = useAlertContext()
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const { data } = useQuery(['likes'], () => getLikes({ userId: user.uid }), {
     enabled: user != null,
   })
 
-  useMutation(
+  const { mutate } = useMutation(
     ({ hotel }: { hotel: Pick<Hotel, 'name' | 'id' | 'nameImageUrl'> }) => {
       if (user == null) {
         throw new Error('로그인 후 이용해주세요.')
@@ -23,6 +24,9 @@ function useLike() {
       return toggleLike({ hotel, userId: user.uid })
     },
     {
+      onSuccess: () => {
+        queryClient.invalidateQueries(['likes'])
+      },
       onError: (e: Error) => {
         if (e.message === '로그인 후 이용해주세요.') {
           open({
@@ -46,7 +50,7 @@ function useLike() {
     },
   )
 
-  return { data }
+  return { data, mutate }
 }
 
 export default useLike

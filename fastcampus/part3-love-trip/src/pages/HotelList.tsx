@@ -11,7 +11,7 @@ import useLike from '@/hooks/like/useLike'
 function HotelListPage() {
   const { hotels, hasNextPage, loadMore } = useHotels()
 
-  const { data: likes } = useLike()
+  const { data: likes, mutate: like } = useLike()
 
   console.log(likes)
 
@@ -33,6 +33,7 @@ function HotelListPage() {
             <HotelItem
               hotel={hotel}
               isLike={Boolean(likes?.find((like) => like.hotelId === hotel.id))}
+              onLike={like}
             />
             {hotels.length - 1 === index ? null : (
               <Spacing

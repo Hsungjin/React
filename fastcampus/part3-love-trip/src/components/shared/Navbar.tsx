@@ -5,6 +5,7 @@ import { colors } from '@/styles/colorPalette'
 import Flex from '@shared/Flex'
 import Button from '@shared/Button'
 import Text from '@shared/Text'
+import Spacing from '@shared/Spacing'
 import { useCallback } from 'react'
 import { useUserStore } from '@store/atom/user'
 
@@ -18,18 +19,29 @@ function Navbar() {
   const renderButton = useCallback(() => {
     if (user != null) {
       return (
-        <Link to="/my">
-          <img
-            src={
-              user.photoURL ??
-              'https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-256.png'
-            }
-            alt="userProfile"
-            width={40}
-            height={40}
-            style={{ borderRadius: '100%' }}
-          />
-        </Link>
+        <Flex align="center">
+          <Link to="/my">
+            <img
+              src={
+                user.photoURL ??
+                'https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-256.png'
+              }
+              alt="userProfile"
+              width={40}
+              height={40}
+              style={{ borderRadius: '100%' }}
+            />
+          </Link>
+          <Spacing size={10} direction="horizontal" />
+          <Link to="/settings">
+            <img
+              src="https://cdn4.iconfinder.com/data/icons/multimedia-75/512/multimedia-06-128.png"
+              alt="settings"
+              width={40}
+              height={40}
+            />
+          </Link>
+        </Flex>
       )
     }
 
@@ -47,7 +59,9 @@ function Navbar() {
   return (
     <Flex align="center" justify="space-between" css={navbarContainerStyles}>
       <Link to="/">
-        <Text typography="t4" bold>Love Trip</Text>
+        <Text typography="t4" bold>
+          Love Trip
+        </Text>
       </Link>
       {renderButton()}
     </Flex>
