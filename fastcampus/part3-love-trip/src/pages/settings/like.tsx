@@ -13,20 +13,31 @@ import {
 import { useEffect, useState } from 'react'
 
 function LikePage() {
-  const { data } = useEditLike()
+  const { data, isEdit, reorder, save } = useEditLike()
+
+  const handleDragEnd = (result: DropResult) => {
+    if (result.destination == null) {
+      return
+    }
+
+    const from = result.source.index
+    const to = result.destination.index
+
+    reorder(from, to)
+  }
 
   return (
     <div>
-      <DragDropContext onDragEnd={() => {}}>
+      <DragDropContext onDragEnd={handleDragEnd}>
         <StrictModeDroppable droppableId="likes">
           {(droppableProps) => (
             <ul
               ref={droppableProps.innerRef}
               {...droppableProps.droppableProps}
             >
-              {data?.map((item, index) => {
+              {data?.map((like, index) => {
                 return (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
+                  <Draggable key={like.id} draggableId={like.id} index={index}>
                     {(draggableProps) => (
                       <li
                         ref={draggableProps.innerRef}
@@ -36,7 +47,10 @@ function LikePage() {
                         <ListRow
                           as="div"
                           contents={
-                            <ListRow.Texts title="test" subTitle="test" />
+                            <ListRow.Texts
+                              title={like.order}
+                              subTitle={like.hotelName}
+                            />
                           }
                         />
                       </li>
@@ -48,6 +62,15 @@ function LikePage() {
           )}
         </StrictModeDroppable>
       </DragDropContext>
+
+      {isEdit ? (
+        <FixedBottomButton
+          label="저장하기"
+          onClick={() => {
+            save()
+          }}
+        />
+      ) : null}
     </div>
   )
 }
