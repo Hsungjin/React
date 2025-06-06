@@ -5,15 +5,16 @@ import Button from '@shared/Button'
 import TextField from '@shared/TextField'
 
 import { format } from 'date-fns'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 
 import useReview from './hooks/useReview'
 import ListRow from '../shared/ListRow'
 import { useUserStore } from '@store/atom/user'
 
 function Review({ hotelId }: { hotelId: string }) {
-  const { data: reviews, isLoading } = useReview({ hotelId })
+  const { data: reviews, isLoading, write } = useReview({ hotelId })
   const user = useUserStore((state) => state.getUser())
+  const [text, setText] = useState('')
 
   const reviewRows = useCallback(() => {
     if (reviews?.length === 0) {
@@ -51,6 +52,13 @@ function Review({ hotelId }: { hotelId: string }) {
     )
   }, [reviews, user])
 
+  const handleTextChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setText(e.target.value)
+    },
+    [],
+  )
+
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -64,10 +72,24 @@ function Review({ hotelId }: { hotelId: string }) {
       {reviewRows()}
       {user != null ? (
         <div style={{ padding: '0 24px' }}>
-          <TextField placeholder="리뷰를 작성해주세요." />
+          <TextField
+            placeholder="리뷰를 작성해주세요."
+            value={text}
+            onChange={handleTextChange}
+          />
           <Spacing size={16} />
           <Flex justify="flex-end">
-            <Button disabled={true}>리뷰 작성</Button>
+            <Button
+              disabled={text.length === 0}
+              onClick={async () => {
+                const success = await write(text)
+                if (success) {
+                  setText('')
+                }
+              }}
+            >
+              리뷰 작성
+            </Button>
           </Flex>
         </div>
       ) : (
