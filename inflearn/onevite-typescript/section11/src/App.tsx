@@ -56,20 +56,17 @@ function App() {
 
   return (
     <TodoStateContext.Provider value={todos}>
-      <div className="App">
-        <h1>TODO</h1>
-      </div>
-      <TodoStateContext.Provider value={todos}>
-        <TodoDispatchContext.Provider
-          value={{ onClickAdd, onClickDelete }}
-        ></TodoDispatchContext.Provider>
-      </TodoStateContext.Provider>
-      <Editor />
-      <div>
-        {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
-        ))}
-      </div>
+      <TodoDispatchContext.Provider value={{ onClickAdd, onClickDelete }}>
+        <div className="App">
+          <h1>TODO</h1>
+        </div>
+        <Editor />
+        <div>
+          {todos.map((todo) => (
+            <TodoItem key={todo.id} todo={todo} />
+          ))}
+        </div>
+      </TodoDispatchContext.Provider>
     </TodoStateContext.Provider>
   );
 }
