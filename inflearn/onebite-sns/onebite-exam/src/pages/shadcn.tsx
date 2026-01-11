@@ -1,3 +1,14 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -6,15 +17,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Link } from "react-router-dom";
-import { toast } from "sonner";
 import {
   Dialog,
   DialogClose,
@@ -25,17 +27,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-  AlertDialogCancel,
-  AlertDialogAction,
-} from "@/components/ui/alert-dialog";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Textarea } from "@/components/ui/textarea";
 import {
   CircleCheckIcon,
   InfoIcon,
@@ -43,10 +41,11 @@ import {
   OctagonXIcon,
   TriangleAlertIcon,
 } from "lucide-react";
+import { toast } from "sonner";
 
-export default function RouterPage() {
+export default function Shadcn() {
   return (
-    <div className="m-4 flex flex-col gap-2">
+    <div>
       <Input placeholder="placeholder" />
       <Textarea className="resize-none" placeholder="placeholder" />
 
@@ -66,16 +65,6 @@ export default function RouterPage() {
       <Button variant={"outline"}>outline</Button>
       <Button variant={"link"}>link</Button>
 
-      <br></br>
-      <Button asChild>
-        <Link to="/typograpy">typograpy</Link>
-      </Button>
-      <Button asChild>
-        <Link to="/border">border</Link>
-      </Button>
-      <Button asChild>
-        <Link to="/flexcontainer">flexcontainer</Link>
-      </Button>
       <div className="text-muted text-2xl">muted</div>
       <div className="text-primary text-2xl">primary</div>
       <div className="text-destructive text-2xl">destructive</div>
