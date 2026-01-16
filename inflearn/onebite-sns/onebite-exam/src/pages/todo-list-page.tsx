@@ -4,7 +4,7 @@ import { API_URL } from "@/lib/constants";
 import type { Todo } from "@/types";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useTodosData } from "@/hooks/quries/use-todos.data";
+import { useTodosData } from "@/hooks/quries/use-todos-data";
 // import { useTodos } from "@/store/todos";
 
 export default function TodoListPage() {
